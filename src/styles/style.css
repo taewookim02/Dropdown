@@ -1,6 +1,7 @@
 .dropdown__outer {
   position: relative;
   color: var(--clr-base-dk);
+  font-size: var(--fs-link);
 }
 
 .dropdown__outer--profile-img {
