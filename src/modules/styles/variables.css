@@ -1,3 +1,8 @@
 :root {
-  --color: #333;
+  --clr-link-bg: #fff;
+
+  --clr-base: #666;
+  --clr-base-lt: #999;
+  --clr-base-ltst: #ebebeb;
+  --clr-base-dk: #333;
 }
