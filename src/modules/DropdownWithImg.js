@@ -1,21 +1,9 @@
 "use strict";
-
 import profileImg from "../assets/default.jpg";
-/*
-<body>
-  <div class="dropdown__outer">
-    <img class="dropdown__outer--profile-img" src="./assets/img/defaultImg.jpg" alt="Profile picture">
-    <div class="dropdown__inner">
-      <a href="#" class="dropdown__inner--link">My Account</a>
-      <a href="#" class="dropdown__inner--link">Settings</a>
-      <a href="#" class="dropdown__inner--link">Logout</a>
-    </div>
-  </div>
-</body>
-*/
+
 export class DropdownWithImg {
-  constructor(linkTexts = ["My Account", "Settings", "Logout"]) {
-    this.linkTexts = linkTexts;
+  constructor(linkInfo = { "My Account": "#", Settings: "#", Logout: "#" }) {
+    this.linkInfo = linkInfo;
     this.dropdownOuterEl = this.createDropdown();
   }
 
@@ -40,49 +28,20 @@ export class DropdownWithImg {
     dropdownInnerEl.classList.add("dropdown__inner");
 
     // inner div - links
-    // const linkTexts = ["My Account", "Settings", "Logout"];
-    this.linkTexts.forEach((val) => {
+    for (const text in this.linkInfo) {
+      const href = this.linkInfo[text];
+
       const linkEl = document.createElement("a");
-      linkEl.href = "#";
-      linkEl.textContent = val;
+      linkEl.href = href;
+      linkEl.textContent = text;
       linkEl.classList.add("dropdown__inner--link");
       dropdownInnerEl.appendChild(linkEl);
-    });
+    }
 
     dropdownOuterEl.appendChild(dropdownInnerEl);
 
     // return virutal DOM element
     return dropdownOuterEl;
-  };
-
-  attachEventListeners = () => {
-    const profileImgEls = document.querySelectorAll(
-      ".dropdown__outer--profile-img"
-    );
-
-    profileImgEls.forEach((el) => {
-      el.addEventListener("click", () => this.toggleDropdown());
-    });
-    document.addEventListener(
-      "click",
-      this.handleClickOutside.bind(this),
-      true
-    );
-  };
-
-  toggleDropdown = (e) => {
-    document.querySelector(".dropdown__inner").classList.toggle("show");
-  };
-
-  handleClickOutside = (e) => {
-    const dropdownInnerEl = document.querySelector(".dropdown__inner");
-    const profileImgEl = document.querySelector(
-      ".dropdown__outer--profile-img"
-    );
-
-    if (!dropdownInnerEl.contains(e.target) && e.target != profileImgEl) {
-      dropdownInnerEl.classList.remove("show");
-    }
   };
 
   getDropdownElement = () => {
