@@ -52,18 +52,18 @@ document.body.appendChild(dropdown3);
   createDropdown = () => {
     // outer div
     const dropdownOuterEl = document.createElement("div");
-    dropdownOuterEl.classList.add("dropdown__outer");
+    dropdownOuterEl.classList.add("dropdown-img__outer");
 
     // image
     const img = new Image();
     img.src = this.imageUrl;
-    img.classList.add("dropdown__outer--profile-img");
+    img.classList.add("dropdown-img__outer--profile-img");
     img.alt = "Profile picture";
     dropdownOuterEl.appendChild(img);
 
     // inner div
     const dropdownInnerEl = document.createElement("div");
-    dropdownInnerEl.classList.add("dropdown__inner");
+    dropdownInnerEl.classList.add("dropdown-img__inner");
 
     // inner div - links
     for (const text in this.linkInfo) {
@@ -72,7 +72,7 @@ document.body.appendChild(dropdown3);
       const linkEl = document.createElement("a");
       linkEl.href = href;
       linkEl.textContent = text;
-      linkEl.classList.add("dropdown__inner--link");
+      linkEl.classList.add("dropdown-img__inner--link");
       dropdownInnerEl.appendChild(linkEl);
     }
 
@@ -90,10 +90,11 @@ document.body.appendChild(dropdown3);
    */
   attachEventListeners = () => {
     const profileImgEl = this.dropdownOuterEl.querySelector(
-      ".dropdown__outer--profile-img"
+      ".dropdown-img__outer--profile-img"
     );
-    const dropdownInnerEl =
-      this.dropdownOuterEl.querySelector(".dropdown__inner");
+    const dropdownInnerEl = this.dropdownOuterEl.querySelector(
+      ".dropdown-img__inner"
+    );
 
     profileImgEl.addEventListener("click", (e) => {
       e.stopPropagation(); // Prevent the click from bubbling to the document

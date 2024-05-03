@@ -1,10 +1,17 @@
 :root {
   --clr-link-bg: #fff;
 
+  --clr-ft-white: #fff;
+
   --clr-base: #666;
   --clr-base-lt: #999;
   --clr-base-ltst: #ebebeb;
   --clr-base-dk: #333;
+
+  --clr-btn: #5c7cfa;
+  --clr-btn-lt: #748ffc;
+  --clr-btn-dk: #4263eb;
+  --clr-btn-dkst: #364fc7;
 
   --fs-link: 14px;
 }
