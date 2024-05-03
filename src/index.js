@@ -5,3 +5,7 @@ import { DropdownButton } from "./DropdownButton";
 
 const ex = new DropdownWithImg();
 document.body.appendChild(ex);
+
+const btn = new DropdownButton();
+document.body.appendChild(btn);
+console.log(btn);

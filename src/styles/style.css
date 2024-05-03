@@ -1,4 +1,5 @@
-.dropdown-img__outer {
+.dropdown-img__outer,
+.dropdown-btn__outer {
   position: relative;
   color: var(--clr-base-dk);
   font-size: var(--fs-link);
