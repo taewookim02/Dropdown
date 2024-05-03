@@ -2,28 +2,14 @@
 import "./style.css";
 import { DropdownWithImg } from "./modules/DropdownWithImg";
 
-new DropdownWithImg().initializeDropdown();
+const dropdownObj = new DropdownWithImg();
+document.body.appendChild(dropdownObj.getDropdownElement());
+const dropdownCustom = new DropdownWithImg([
+  "Link 1",
+  "Link 2",
+  "Link 3",
+  "Link 4",
+  "Link 5",
+]);
 
-/*
-document.querySelectorAll(".dropdown__outer").forEach((dropdown) => {
-  const profileImgEl = dropdown.querySelector(".dropdown__outer--profile-img");
-  const dropdownInnerEl = dropdown.querySelector(".dropdown__inner");
-
-  const handleClickOutsideMenu = (e) => {
-    if (!dropdownInnerEl.contains(e.target) && e.target != profileImgEl) {
-      dropdownInnerEl.classList.remove("show");
-    }
-  };
-
-  const toggleMenu = (e) => {
-    dropdownInnerEl.classList.toggle("show");
-  };
-
-  // adding event listeners
-  window.addEventListener("click", handleClickOutsideMenu);
-
-  profileImgEl.addEventListener("click", toggleMenu);
-});
-
-
-*/
+document.body.appendChild(dropdownCustom.getDropdownElement());
