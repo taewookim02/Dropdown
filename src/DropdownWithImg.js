@@ -1,55 +1,62 @@
 "use strict";
 import defaultImg from "./assets/default.jpg";
 
+/**
+ * Represents a dropdown component with an image and customizable links.
+ * This component is designed to be attached to the DOM directly, returning a JS DOM element that can be appended to any document element.
+ *
+ * @class
+ * @param {Object} [linkInfo={"My Account": "#", "Settings": "#", "Logout": "#"}] - Object containing the display text and URLs for each link in the dropdown.
+ * @param {string} [imageUrl="./assets/default.jpg"] - URL or path to the profile image to be used in the dropdown. Can be a relative path handled by Webpack or an absolute URL.
+ *
+ * @example
+ * // Creating a dropdown with default settings:
+ * ```javascript
+ * const dropdown = new DropdownWithImg();
+ * document.body.appendChild(dropdown);
+ * ```
+ *
+ * @example
+ * // Creating a dropdown with default linkInfo, but a custom image URL:
+ * ```javascript
+ * const imageUrl = "https://images.pexels.com/photos/21945939/pexels-photo-21945939.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load";
+ * const dropdown2 = new DropdownWithImg(undefined, imageUrl);
+ * document.body.appendChild(dropdown2);
+ * ```
+ *
+ * @example
+ * // Creating a dropdown using custom links and a custom image with Webpack and file-loader:
+ * ```javascript
+ * import customImg from "./assets/customImg.jpg";
+ * const linkInfo = {
+ *   "Google Link": "https://www.google.com",
+ *   "StackOverflow": "https://stackoverflow.com/",
+ *   "YouTube": "https://www.youtube.com/"
+ * };
+ * const dropdown3 = new DropdownWithImg(linkInfo, customImg);
+ * document.body.appendChild(dropdown3);
+ * ```
+ */
 export class DropdownWithImg {
-  /** 
-   * Creates a new DropdownWithImg instance, returns a JS DOM element.
-   * 
-   * @constructor
-   * @param {Object} [linkInfo={"My Account": "#", "Settings": "#", "Logout": "#"}] - Contains the text and href for each dropdown link.
-   * @param {string} [imageUrl] - URL or path to the image to be used in the dropdown.
-
-   * 
-   * @example
-   * // Without arguments, using default settings:
-   * ```javascript
-    const dropdown = new DropdownWithImg();
-    document.body.appendChild(dropdown);
-   * ```
-
-   * <br>
-   * <hr>
-   * @example
-   * // With default linkInfo, custom image URL:
-   * ```javascript
-   * const dropdown2 = new DropdownWithImg(undefined,
-"https://images.pexels.com/photos/21945939/pexels-photo-21945939.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load");
-document.body.appendChild(dropdown2);
-```
-   * @example
-   * // Using custom image with Webpack and file-loader:
-   * ```javascript
-   * import customImg from "./assets/customImg.jpg";
-const dropdown3 = new DropdownWithImg(linkInfo, customImg);
-document.body.appendChild(dropdown3);
-   * ```
-   */
   constructor(
     linkInfo = { "My Account": "#", Settings: "#", Logout: "#" },
     imageUrl = defaultImg
   ) {
     this.linkInfo = linkInfo;
     this.imageUrl = imageUrl;
-    this.dropdownOuterEl = this.createDropdown();
-    this.attachEventListeners();
+    this.dropdownOuterEl = this.#createDropdown();
+    this.#attachEventListeners();
     return this.dropdownOuterEl;
   }
 
   /**
-   * Create dropdown with image and returns a virtual DOM element.
-   * Accepts array of texts for each nav link textContent.
+   * Creates the dropdown element with an image and a set of links based on provided information.
+   * This method is marked private and is not intended to be used outside of the class instance.
+   *
+   * @private
+   * @returns {HTMLElement} The complete dropdown element including image and links.
    */
-  createDropdown = () => {
+  #createDropdown = () => {
     // outer div
     const dropdownOuterEl = document.createElement("div");
     dropdownOuterEl.classList.add("dropdown-img__outer");
@@ -83,12 +90,13 @@ document.body.appendChild(dropdown3);
   };
 
   /**
-   * Attaches event listeners for the current dropdown.
-   * First listener is to the current profileImgElement.
-   * Second listener is to the document, and listens for anything outside of the current open dropdown.
+   * Attaches necessary event listeners to the dropdown's elements.
+   * This method ensures that the dropdown operates correctly (e.g., toggling visibility) when interacted with.
+   * This method is private to prevent external manipulation.
    *
+   * @private
    */
-  attachEventListeners = () => {
+  #attachEventListeners = () => {
     const profileImgEl = this.dropdownOuterEl.querySelector(
       ".dropdown-img__outer--profile-img"
     );
