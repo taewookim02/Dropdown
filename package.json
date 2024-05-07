@@ -1,23 +1,38 @@
 {
-  "name": "dropdown",
-  "description": "1. webpack\r 2. use css variables\r 3. Use js (oop) to create dropdown",
+  "name": "vanilla-dropdown-component",
+  "description": "Reusable dropdown components with images and buttons.",
   "version": "1.0.0",
-  "main": "DropdownImg.js",
+  "main": "dist/app.bundle.js",
+  "scripts": {
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taewookim02/vanilla-dropdown-component.git"
+  },
+  "keywords": [
+    "dropdown",
+    "ui",
+    "component",
+    "javascript"
+  ],
+  "author": "Tae Woo Kim <taewookim02@gmail.com>",
+  "license": "ISC",
+  "files": [
+    "dist/app.bundle.js",
+    "dist/*.jpg"
+  ],
+  "bugs": {
+    "url": "https://github.com/taewookim02/vanilla-dropdown-component/issues"
+  },
+  "homepage": "https://github.com/taewookim02/vanilla-dropdown-component",
   "devDependencies": {
     "css-loader": "^7.1.1",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.6.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-merge": "^5.10.0"
-  },
-  "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "watch": "webpack --watch --config webpack.dev.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
