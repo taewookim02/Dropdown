@@ -18,7 +18,7 @@
  *   "Log Out": "https://example.com/logout"
  * };
  * const customButton = new DropdownButton("My Profile", customLinkInfo);
- * document.body.appendChild(customButton.dropdownOuterEl);
+ * document.body.appendChild(customButton);
  */
 export class DropdownButton {
   constructor(
