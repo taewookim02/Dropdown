@@ -4,6 +4,8 @@ This document provides guidance on how to utilize the Dropdown component in web 
 
 _This package is **distributed as ES Modules** and is expected to be used in environments that support module syntax._
 
+[![npm version](https://badge.fury.io/js/vanilla-dropdown-component.svg)](https://badge.fury.io/js/vanilla-dropdown-component)
+
 ## Installation
 
 ```bash
