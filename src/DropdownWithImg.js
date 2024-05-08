@@ -1,46 +1,39 @@
 "use strict";
-import defaultImg from "./assets/default.jpg";
 
 /**
  * Represents a dropdown component with an image and customizable links.
  * This component is designed to be attached to the DOM directly, returning a JS DOM element that can be appended to any document element.
+ * Users must provide their own image URL to customize the profile picture, or a default image will be used.
  *
  * @class
  * @param {Object} [linkInfo={"My Account": "#", "Settings": "#", "Logout": "#"}] - Object containing the display text and URLs for each link in the dropdown.
- * @param {string} [imageUrl="./assets/default.jpg"] - URL or path to the profile image to be used in the dropdown. Can be a relative path handled by Webpack or an absolute URL.
+ * @param {string} imageUrl - URL to the profile image to be used in the dropdown. If not specified, a default image is used.
  *
  * @example
- * // Creating a dropdown with default settings:
+ * // Creating a dropdown with default linkInfo and a custom image URL:
  * ```javascript
- * const dropdown = new DropdownWithImg();
+ * const imageUrl = "https://images.pexels.com/photos/21945939/pexels-photo-21945939.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load";
+ * const dropdown = new DropdownWithImg(undefined, imageUrl);
  * document.body.appendChild(dropdown);
  * ```
  *
  * @example
- * // Creating a dropdown with default linkInfo, but a custom image URL:
+ * // Creating a dropdown using custom links and a custom image URL:
  * ```javascript
- * const imageUrl = "https://images.pexels.com/photos/21945939/pexels-photo-21945939.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load";
- * const dropdown2 = new DropdownWithImg(undefined, imageUrl);
- * document.body.appendChild(dropdown2);
- * ```
- *
- * @example
- * // Creating a dropdown using custom links and a custom image with Webpack and file-loader:
- * ```javascript
- * import customImg from "./assets/customImg.jpg";
  * const linkInfo = {
  *   "Google Link": "https://www.google.com",
  *   "StackOverflow": "https://stackoverflow.com/",
  *   "YouTube": "https://www.youtube.com/"
  * };
- * const dropdown3 = new DropdownWithImg(linkInfo, customImg);
- * document.body.appendChild(dropdown3);
+ * const imageUrl = "https://example.com/path/to/image.jpg";
+ * const dropdown = new DropdownWithImg(linkInfo, imageUrl);
+ * document.body.appendChild(dropdown);
  * ```
  */
 export class DropdownWithImg {
   constructor(
     linkInfo = { "My Account": "#", Settings: "#", Logout: "#" },
-    imageUrl = defaultImg
+    imageUrl = "https://images.pexels.com/photos/21945939/pexels-photo-21945939.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load"
   ) {
     this.linkInfo = linkInfo;
     this.imageUrl = imageUrl;

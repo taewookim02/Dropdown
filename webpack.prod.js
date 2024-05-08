@@ -5,11 +5,15 @@ const path = require("path");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    path: path.resolve(__dirname, "dist"),
     filename: "app.bundle.js",
-    library: "vanillaDropdownComponent",
-    libraryTarget: "umd",
-    umdNamedDefine: true,
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/dist/", // This path should be accessible by consumers of the library
+
+    library: {
+      name: "VanillaDropdownComponent",
+      type: "umd",
+    },
+    globalObject: "this", // Ensures the library runs correctly in various environments
   },
   externals: {},
 });
