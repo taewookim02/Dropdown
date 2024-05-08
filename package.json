@@ -1,7 +1,7 @@
 {
   "name": "vanilla-dropdown-component",
   "description": "Reusable dropdown components with images and buttons.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/app.bundle.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
