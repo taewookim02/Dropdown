@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taewookim02/vanilla-dropdown-component.git"
+    "url": "git+https://github.com/taewookim02/vanilla-dropdown-component.git"
   },
   "keywords": [
     "dropdown",
@@ -20,8 +20,7 @@
   "author": "Tae Woo Kim <taewookim02@gmail.com>",
   "license": "ISC",
   "files": [
-    "dist/app.bundle.js",
-    "dist/*.jpg"
+    "dist/app.bundle.js"
   ],
   "bugs": {
     "url": "https://github.com/taewookim02/vanilla-dropdown-component/issues"

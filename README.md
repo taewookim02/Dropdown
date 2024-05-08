@@ -2,6 +2,8 @@
 
 This document provides guidance on how to utilize the Dropdown component in web projects. The component is highly customizable and can be styled using CSS variables.
 
+_This package is **distributed as ES Modules** and is expected to be used in environments that support module syntax._
+
 ## Installation
 
 ```bash
